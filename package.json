@@ -1,0 +1,21 @@
+{
+	"name": "rollup-plugin-import",
+	"version": "0.0.0",
+	"description": "Modular import plugin for rollup, compatible with antd, antd-mobile, lodash, material-ui, and so on.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"rollup",
+		"plugin",
+		"import"
+	],
+	"author": "linsk",
+	"license": "MIT",
+	"devDependencies": {
+		"@rollup/pluginutils": "^4.1.0",
+		"estree-walker": "^1.0.1",
+		"magic-string": "^0.25.7"
+	}
+}
