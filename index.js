@@ -1,5 +1,4 @@
 
-var estreeWalker = require('estree-walker');
 var pluginutils = require('@rollup/pluginutils');
 var MagicString = require('magic-string');
 //var kebabCase = require('kebab-case');
@@ -19,6 +18,9 @@ function plugin(options) {
 		return `${options.libraryName}/${options.namedComponent(name)}`;
 	};
 	//options.exportName=undefined;
+	if(options.style===true){
+		options.style="style";
+	}
 	var filter = pluginutils.createFilter(options.include, options.exclude);
 
 	var sourceMap = options.sourceMap !== false && options.sourcemap !== false;
@@ -59,9 +61,12 @@ function plugin(options) {
 							}else{
 								imports.push(`import {${exportName} as ${localName}} from ${JSON.stringify(modName)};`);
 							}
+							if(options.style){
+								imports.push(`import ${JSON.stringify(`${modName}/${options.style}`)};`);
+							}
 						});
 						if(imports.length){
-							console.log(imports);
+							//console.log(imports);
 							hasChanged=true;
 							magicString.overwrite(node.start, node.end, imports.join(''));
 						}

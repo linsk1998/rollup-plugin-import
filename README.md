@@ -36,7 +36,8 @@ A function custom name of libraryName/libraryDirectory/ComponentName
 
 ### exportName
 
-For Example:"default". Default will NOT change export name.
+* For Example:"default". Default will NOT change export name.
+* For Example:"*". Import all exports as namespace.
 
 ### sourceMap
 
@@ -76,14 +77,14 @@ importPlugin({
 ```javascript
 import importPlugin from 'rollup-plugin-import';
 importPlugin({
-	libraryName: "sky-core/utils",
+	libraryName: "sky-core",
 	customName:function(name){
 		switch(name){
 			case "getCurrentScript":
 			case "getCurrentPath":
 			case "getScript":
 			case "forOwn":
-				return "sky-core/utils";//这4个不变，其它变
+				return "sky-core";//这4个不变，其它变
 		}
 		return `sky-core/utils/${name}`;
 	}
