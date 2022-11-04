@@ -22,10 +22,12 @@ function plugin(options) {
 	if (style === true) {
 		style = "style";
 	}
-	if (typeof style !== "function") {
-		options.style = function(name) {
-			return `${name}/${style}`;
-		};
+	if(style){
+		if (typeof style !== "function") {
+			options.style = function(name) {
+				return `${name}/${style}`;
+			};
+		}
 	}
 	var filter = pluginutils.createFilter(options.include, options.exclude);
 
