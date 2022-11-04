@@ -1,6 +1,6 @@
 {
 	"name": "rollup-plugin-import",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "Modular import plugin for rollup, compatible with antd, antd-mobile, lodash, material-ui, and so on.",
 	"main": "index.js",
 	"keywords": [
